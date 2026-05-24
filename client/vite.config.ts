@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://bda-cmr-backend.vercel.app',
+        target: 'https://bda-cmr-backend.onrender.com',
         changeOrigin: true,
       }
     }
