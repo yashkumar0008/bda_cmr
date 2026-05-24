@@ -6,7 +6,16 @@ const errorHandler = require('./middleware/error');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://bda-cmr-frontend.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
+app.options("*", cors());
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(fileUpload({ useTempFiles: false, limits: { fileSize: 10 * 1024 * 1024 } }));
